@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Task1</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+      }
+      .container-fuild {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      .form {
+        width: 25%;
+        margin: 20px 20px 20px 20px;
+        border: 1px solid #fafafa;
+        background-color: #fafafa;
+        padding: 20px;
+        border-radius: 20px;
+      }
+      label {
+        font-size: 16px;
+        padding-bottom: 5px;
+      }
+      h1 {
+        text-align: center;
+      }
+      .tbl {
+        width: 60%;
+        margin: 50px auto;
+
+      }
+      body {
+        counter-reset: Serial;
+      }
+      .auto-index td:first-child::before {
+        counter-increment: Serial;
+        content: counter(Serial);
+      }
+      .search-input {
+        margin-bottom: 10px;
+      }
+      table th:first-child {
+        border-radius: 6px 0 0 6px;
+      }
+      table th:last-child {
+        border-radius:  0 6px 6px 0 ;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6 form">
+          <div>
+            <h1>Form</h1>
+          </div>
+          <div>
+            <div class="mb-3">
+              <label>Id</label>
+              <input type="text" class="form-control" id="id" />
+            </div>
+            <div class="mb-3">
+              <label>Name</label>
+              <input type="text" class="form-control" id="name" />
+            </div>
+            <div class="mb-3">
+              <label>Status</label>
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                id="status"
+              >
+                <option seleced>open this select menu</option>
+                <option>Accepted</option>
+                <option>Awaiting approval</option>
+                <option>Urgent</option>
+                <option>On-hold</option>
+                <option>Complete</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label>Start Time</label>
+              <input type="time" class="form-control" id="startTime" value="" />
+            </div>
+            <div class="mb-3">
+              <label>End Time</label>
+              <input type="time" class="form-control" id="endTime" value="" />
+            </div>
+            <div>
+              <button class="btn btn-primary" onclick="submitbtn()">Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-8 tbl">
+        <!-- <div class="row tbl"> -->
+          <div>
+            <input
+              type="text"
+              class="form-control search-input"
+              id="searchItem"
+              onkeyup="searchItems()"
+              placeholder="searchItem..."
+              style="width: 30%"
+            />
+          </div>
+          <table class="table auto-index " id="table1">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col" class="sort_name" data-column="name" data-order="desc" onclick="clickName()">
+                  Name
+                </th>
+                <th scope="col" class="sort_status" data-column="name" data-order="desc" onclick="clickStatus()">
+                  Status
+                </th>
+                <th scope="col">Start Time</th>
+                <th scope="col">End Time</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider align-middle" id="tablebody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>
